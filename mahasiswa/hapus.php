@@ -1,5 +1,5 @@
 <?php
-include 'koneksi.php';
+include '../koneksi.php';
 
 $nim = $_GET['nim'] ?? null;
 
@@ -13,5 +13,5 @@ if ($nim) {
     }
 }
 
-header("Location: index.php");
+header("Location: ../index.php");
 exit();
