@@ -32,6 +32,24 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/pencatatan-data-mahasiswa/prodi/index.php">Data Prodi</a>
                     </li>
+                    <li class="nav-item">
+                        <form method="POST">
+                            <button class="nav-link" type="submit">Logout</button>
+                        </form>
+                            <?php
+                            if (isset($_POST['submit'])) {
+                                try {
+                                    session_start();
+                                    $_SESSION['login'] = false;
+                                    echo "logout";
+                                    header('Location: login.php');
+                                    exit();
+                                } catch (PDOException $e) {
+                                    echo "Error: " . $e->getMessage();
+                                }
+                            }
+                            ?>
+                    </li>
                 </ul>
             </div>
         </div>
