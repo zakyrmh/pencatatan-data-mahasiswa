@@ -1,7 +1,4 @@
 <?php
-$title = "Beranda - Sistem Pencatatan Data Mahasiswa";
-include 'layout/header.php';
-
 session_start();
 
 if ((isset($_SESSION['login']))) {
@@ -10,7 +7,7 @@ if ((isset($_SESSION['login']))) {
 
 ?>
 
-    <!doctype html>
+    <!DOCTYPE html>
     <html lang="id">
 
     <head>
@@ -23,7 +20,7 @@ if ((isset($_SESSION['login']))) {
     </head>
 
     <body class="bg-light d-flex flex-column min-vh-100">
-        <div class="card m-auto" style="width: 18rem;">
+        <div class="card m-auto" style="width: 22rem;">
             <div class="card-body">
                 <h2 class="text-center mb-4">Login</h2>
                 <form method="POST">
@@ -40,40 +37,45 @@ if ((isset($_SESSION['login']))) {
                 <div class="mt-4">
                     <p>Belum memiliki akun? <a href="register.php">Buat akun</a></p>
                 </div>
-            <?php
-        }
-        if (isset($_POST['email'])) {
-            $email = $_POST['email'];
-            $pass = md5($_POST['password']);
+                <?php
 
-            require 'koneksi.php';
+                if (isset($_POST['email'])) {
+                    $email = $_POST['email'];
+                    $pass = md5($_POST['password']);
 
-            try {
-                $sql = "SELECT * FROM pengguna WHERE email = :email AND password = :pass";
-                $stmt = $pdo->prepare($sql);
-                $stmt->execute([
-                    'email' => $email,
-                    'pass' => $pass,
-                ]);
-                $cekLogin = $stmt->fetchAll();
+                    require 'koneksi.php';
 
-                if ($cekLogin) {
-                    // set session
-                    session_start();
-                    $_SESSION['login'] = true;
-                    $_SESSION['email'] = $email;
-                    header('Location: index.php');
-                    exit();
-                } else {
-                    echo "login gagal";
+                    try {
+                        $sql = "SELECT * FROM pengguna WHERE email = :email AND password = :pass";
+                        $stmt = $pdo->prepare($sql);
+                        $stmt->execute([
+                            'email' => $email,
+                            'pass' => $pass,
+                        ]);
+                        $cekLogin = $stmt->fetchAll();
+
+                        if ($cekLogin) {
+                            // set session
+                            session_start();
+                            $_SESSION['login'] = true;
+                            $_SESSION['email'] = $email;
+                            header('Location: index.php');
+                            exit();
+                        } else {
+                            echo '<div class="alert alert-danger">Email atau password salah</div>';
+                        }
+                    } catch (PDOException $e) {
+                        echo "Error: " . $e->getMessage();
+                    }
                 }
-            } catch (PDOException $e) {
-                echo "Error: " . $e->getMessage();
-            }
-        }
-            ?>
+
+                ?>
             </div>
         </div>
     </body>
 
     </html>
+
+<?php
+}
+?>

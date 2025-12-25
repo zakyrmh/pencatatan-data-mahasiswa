@@ -1,3 +1,23 @@
+<?php
+if (isset($_POST['logout'])) {
+    session_start();
+    // Unset all session variables
+    $_SESSION = array();
+
+    // Delete the session cookie if it exists
+    if (isset($_COOKIE[session_name()])) {
+        setcookie(session_name(), '', time() - 3600, '/');
+    }
+
+    // Destroy the session
+    session_destroy();
+
+    // Redirect to login page
+    header('Location: login.php');
+    exit();
+}
+?>
+
 <!doctype html>
 <html lang="id">
 
@@ -34,21 +54,8 @@
                     </li>
                     <li class="nav-item">
                         <form method="POST">
-                            <button class="nav-link" type="submit">Logout</button>
+                            <button class="nav-link text-decoration-none border-0 bg-transparent" type="submit" name="logout">Logout</button>
                         </form>
-                            <?php
-                            if (isset($_POST['submit'])) {
-                                try {
-                                    session_start();
-                                    $_SESSION['login'] = false;
-                                    echo "logout";
-                                    header('Location: login.php');
-                                    exit();
-                                } catch (PDOException $e) {
-                                    echo "Error: " . $e->getMessage();
-                                }
-                            }
-                            ?>
                     </li>
                 </ul>
             </div>
