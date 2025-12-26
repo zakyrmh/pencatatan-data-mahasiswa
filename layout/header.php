@@ -54,7 +54,7 @@ if (isset($_POST['logout'])) {
                     </li>
                     <li class="nav-item">
                         <form method="POST">
-                            <button class="nav-link text-decoration-none border-0 bg-transparent" type="submit" name="logout">Logout</button>
+                            <button class="btn btn-outline-light ms-4" type="submit" name="logout">Logout</button>
                         </form>
                     </li>
                 </ul>

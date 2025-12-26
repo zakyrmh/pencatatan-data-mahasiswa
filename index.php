@@ -10,8 +10,13 @@ if (!(isset($_SESSION['login']))) {
 
 ?>
     <div class="container py-4">
-        <div class="container-fluid mb-4">
+        <div class="mb-4">
             <h1 class="display-5 fw-bold text-primary">Sistem Pencatatan Data Mahasiswa</h1>
+        </div>
+
+        <div class="mb-2">
+            <!-- Selamat datang admin -->
+            <p>Selamat datang, <?= $_SESSION['nama_lengkap']; ?>!</p>
         </div>
 
         <div class="row align-items-md-stretch">

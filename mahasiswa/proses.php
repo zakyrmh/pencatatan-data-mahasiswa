@@ -22,7 +22,7 @@ if ($aksi == 'tambah') {
                 'alamat' => $alamat
             ]);
 
-            header("Location: index.php");
+            header("Location: index.php?page=home");
             exit();
         } catch (PDOException $e) {
             echo "Error: " . $e->getMessage();
@@ -47,7 +47,7 @@ if ($aksi == 'tambah') {
                 'nim' => $nim
             ]);
 
-            header("Location: index.php");
+            header("Location: index.php?page=home");
             exit();
         } catch (PDOException $e) {
             echo "Error: " . $e->getMessage();
@@ -65,9 +65,9 @@ if ($aksi == 'tambah') {
             exit();
         }
     }
-    header("Location: index.php");
+    header("Location: index.php?page=home");
     exit();
 } else {
-    header("Location: index.php");
+    header("Location: index.php?page=home");
     exit();
 }

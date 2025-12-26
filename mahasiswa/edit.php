@@ -4,7 +4,7 @@ include '../koneksi.php';
 $nim = $_GET['nim'] ?? null;
 
 if (!$nim) {
-    header("Location: index.php");
+    header("Location: index.php?page=home");
     exit();
 }
 
@@ -20,7 +20,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 $title = "Edit Data Mahasiswa";
-include '../layout/header.php';
 ?>
 <div class="row justify-content-center">
     <div class="col-md-6">
@@ -65,12 +64,9 @@ include '../layout/header.php';
                             rows="3"><?= htmlspecialchars($data['alamat']) ?></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Update</button>
-                    <a href="index.php" class="btn btn-secondary">Batal</a>
+                    <a href="index.php?page=home" class="btn btn-secondary">Batal</a>
                 </form>
             </div>
         </div>
     </div>
 </div>
-<?php
-include '../layout/footer.php';
-?>

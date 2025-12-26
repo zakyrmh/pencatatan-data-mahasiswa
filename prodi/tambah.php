@@ -3,12 +3,7 @@ include '../koneksi.php';
 
 $pesan = '';
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Logic dipindahkan ke proses.php
-}
-
 $title = "Tambah Data Program Studi";
-include '../layout/header.php';
 ?>
 <div class="row justify-content-center">
     <div class="col-md-6">
@@ -57,12 +52,9 @@ include '../layout/header.php';
                         <input type="text" name="keterangan" class="form-control" required>
                     </div>
                     <button type="submit" class="btn btn-primary">Simpan</button>
-                    <a href="index.php" class="btn btn-secondary">Kembali</a>
+                    <a href="index.php?page=home" class="btn btn-secondary">Kembali</a>
                 </form>
             </div>
         </div>
     </div>
 </div>
-<?php
-include '../layout/footer.php';
-?>

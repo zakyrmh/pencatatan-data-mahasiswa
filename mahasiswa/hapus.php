@@ -13,5 +13,5 @@ if ($nim) {
     }
 }
 
-header("Location: index.php");
+header("Location: index.php?page=home");
 exit();

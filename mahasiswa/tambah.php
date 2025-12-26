@@ -7,7 +7,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 $title = "Tambah Data Mahasiswa";
-include '../layout/header.php';
 ?>
 <div class="row justify-content-center">
     <div class="col-md-6">
@@ -52,12 +51,9 @@ include '../layout/header.php';
                         <textarea name="alamat" class="form-control" rows="3"></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Simpan</button>
-                    <a href="index.php" class="btn btn-secondary">Kembali</a>
+                    <a href="index.php?page=home" class="btn btn-secondary">Kembali</a>
                 </form>
             </div>
         </div>
     </div>
 </div>
-<?php
-include '../layout/footer.php';
-?>

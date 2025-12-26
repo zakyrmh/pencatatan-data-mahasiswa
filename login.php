@@ -46,7 +46,7 @@ if ((isset($_SESSION['login']))) {
                     require 'koneksi.php';
 
                     try {
-                        $sql = "SELECT * FROM pengguna WHERE email = :email AND password = :pass";
+                        $sql = "SELECT nama_lengkap FROM pengguna WHERE email = :email AND password = :pass";
                         $stmt = $pdo->prepare($sql);
                         $stmt->execute([
                             'email' => $email,
@@ -59,6 +59,7 @@ if ((isset($_SESSION['login']))) {
                             session_start();
                             $_SESSION['login'] = true;
                             $_SESSION['email'] = $email;
+                            $_SESSION['nama_lengkap'] = $cekLogin[0]['nama_lengkap'];
                             header('Location: index.php');
                             exit();
                         } else {
