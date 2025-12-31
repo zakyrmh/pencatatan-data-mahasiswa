@@ -25,7 +25,7 @@ if (!(isset($_SESSION['login']))) {
                     <h2 class="fw-bold">Data Mahasiswa</h2>
                     <p>Kelola seluruh data mahasiswa, mulai dari informasi pribadi hingga data akademik. Anda dapat
                         menambah, mengubah, dan menghapus data mahasiswa dengan mudah.</p>
-                    <a href="mahasiswa/index.php" class="btn btn-outline-light" type="button">Kelola Mahasiswa</a>
+                    <a href="mahasiswa/index.php?page=home" class="btn btn-outline-light" type="button">Kelola Mahasiswa</a>
                 </div>
             </div>
             <div class="col-md-6 mb-4">
@@ -33,7 +33,7 @@ if (!(isset($_SESSION['login']))) {
                     <h2 class="fw-bold">Data Program Studi</h2>
                     <p>Informasi lengkap mengenai program studi yang tersedia. Kelola data fakultas dan jurusan sebagai
                         referensi data mahasiswa.</p>
-                    <a href="prodi/index.php" class="btn btn-outline-secondary" type="button">Kelola Prodi</a>
+                    <a href="prodi/index.php?page=home" class="btn btn-outline-secondary" type="button">Kelola Prodi</a>
                 </div>
             </div>
         </div>

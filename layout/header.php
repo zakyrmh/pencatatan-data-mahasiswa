@@ -46,11 +46,11 @@ if (isset($_POST['logout'])) {
                         <a class="nav-link" aria-current="page" href="/pencatatan-data-mahasiswa/index.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/pencatatan-data-mahasiswa/mahasiswa/index.php">Data
+                        <a class="nav-link" href="/pencatatan-data-mahasiswa/mahasiswa/index.php?page=home">Data
                             Mahasiswa</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/pencatatan-data-mahasiswa/prodi/index.php">Data Prodi</a>
+                        <a class="nav-link" href="/pencatatan-data-mahasiswa/prodi/index.php?page=home">Data Prodi</a>
                     </li>
                     <li class="nav-item">
                         <form method="POST">
