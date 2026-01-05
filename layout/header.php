@@ -13,7 +13,7 @@ if (isset($_POST['logout'])) {
     session_destroy();
 
     // Redirect to login page
-    header('Location: login.php');
+    header('Location: /pencatatan-data-mahasiswa/login.php');
     exit();
 }
 ?>

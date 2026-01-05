@@ -1,4 +1,11 @@
 <?php
+session_start();
+
+if (!isset($_SESSION['login'])) {
+    header('Location: ../login.php');
+    exit;
+}
+
 include '../koneksi.php';
 
 $stmt = $pdo->query('SELECT * FROM program_studi');
@@ -8,7 +15,9 @@ $title = "Daftar Program Studi";
 
 include '../layout/header.php';
 
-switch ($_GET['page']) {
+$page = isset($_GET['page']) ? $_GET['page'] : 'home';
+
+switch ($page) {
     case 'home':
         include 'home.php';
         break;

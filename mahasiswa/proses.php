@@ -1,4 +1,11 @@
 <?php
+session_start();
+
+if (!isset($_SESSION['login'])) {
+    header('Location: ../login.php');
+    exit;
+}
+
 include '../koneksi.php';
 
 $aksi = $_GET['aksi'] ?? '';
@@ -12,14 +19,15 @@ if ($aksi == 'tambah') {
         $program_studi_id = $_POST['program_studi_id'];
 
         try {
-            $sql = "INSERT INTO mahasiswa (nim, nama_mhs, tgl_lahir, program_studi_id, alamat) VALUES (:nim, :nama_mhs, :tgl_lahir, :program_studi_id, :alamat)";
+            $sql = "INSERT INTO mahasiswa (nim, nama_mhs, tgl_lahir, program_studi_id, alamat, pengguna_id) VALUES (:nim, :nama_mhs, :tgl_lahir, :program_studi_id, :alamat, :pengguna_id)";
             $stmt = $pdo->prepare($sql);
             $stmt->execute([
                 'nim' => $nim,
                 'nama_mhs' => $nama_mhs,
                 'tgl_lahir' => $tgl_lahir,
                 'program_studi_id' => $program_studi_id,
-                'alamat' => $alamat
+                'alamat' => $alamat,
+                'pengguna_id' => $_SESSION['id']
             ]);
 
             header("Location: index.php?page=home");

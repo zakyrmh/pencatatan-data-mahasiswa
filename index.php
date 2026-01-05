@@ -8,7 +8,7 @@ if (!(isset($_SESSION['login']))) {
     header('Location: login.php');
 } else {
 
-?>
+    ?>
     <div class="container py-4">
         <div class="mb-4">
             <h1 class="display-5 fw-bold text-primary">Sistem Pencatatan Data Mahasiswa</h1>
@@ -37,10 +37,8 @@ if (!(isset($_SESSION['login']))) {
                 </div>
             </div>
         </div>
-
-
     </div>
-<?php
+    <?php
 }
 include 'layout/footer.php';
 ?>
